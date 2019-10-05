@@ -96,4 +96,39 @@
 .current-weather-wrapper .weather-row3 {
   text-align: center;
 }
+
+.forecast-wrapper {
+  padding: 0 12px;
+  margin: 24px 0;
+}
+
+.forecast-wrapper .forecast-title {
+  padding: 0 6px;
+}
+
+.forecast-wrapper .forecast-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+  padding: 16px 12px;
+  background-color: #555;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.forecast-wrapper .forecast-day,
+.forecast-wrapper .forecast-temp {
+  text-align: center;
+  font-size: .85em;
+}
+
+.forecast-wrapper .forecast-icon img {
+  width: 30px;
+  padding: 10px 0;
+}
 /*# sourceMappingURL=index.css.map */

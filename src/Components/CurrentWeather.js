@@ -12,7 +12,7 @@ const CurrentWeather = () => {
       </div>
       <div className="weather-container">
           <div className="weather-row1">
-            <img className="weather-icon" src={Sunny} />
+            <img className="weather-icon" src={Sunny} alt="Sunny"/>
             <span className="weather-temperature">40</span>
           </div>
           <div className="weather-row2">
