@@ -53,7 +53,7 @@
 
 .current-weather-wrapper .date,
 .current-weather-wrapper .time {
-  font-size: .85em;
+  font-size: 0.85em;
   color: #aaa;
 }
 
@@ -104,6 +104,7 @@
 
 .forecast-wrapper .forecast-title {
   padding: 0 6px;
+  font-size: 1em;
 }
 
 .forecast-wrapper .forecast-container {
@@ -113,6 +114,7 @@
   border-radius: 10px;
   padding: 16px 12px;
   background-color: #555;
+  font-size: 0.85em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -124,11 +126,52 @@
 .forecast-wrapper .forecast-day,
 .forecast-wrapper .forecast-temp {
   text-align: center;
-  font-size: .85em;
 }
 
 .forecast-wrapper .forecast-icon img {
   width: 30px;
   padding: 10px 0;
+}
+
+.uvindex-wrapper {
+  padding: 0 12px;
+  margin: 24px 0;
+}
+
+.uvindex-wrapper .uvindex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+  padding: 16px 12px;
+  background-color: #555;
+  font-size: 0.85em;
+}
+
+.uvindex-wrapper .uvindex-left {
+  width: 50%;
+  border-right: 1px solid #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.uvindex-wrapper .uvindex-right {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,7 +1,27 @@
+$smallFont: .85em;
+
 @mixin reset{
   margin: 0;
   padding: 0;
 };
+
+@mixin wrapper-props{
+  padding: 0 12px;
+  margin: 24px 0;
+}
+
+@mixin box-props{
+  display: flex;
+  border-radius: 10px;
+  padding: 16px 12px;
+  background-color: #555;
+  font-size: $smallFont;
+}
+
+@mixin box-title {
+  padding: 0 6px;
+  font-size: 1em;
+}
 
 * {
   @include reset;
@@ -58,7 +78,7 @@
 
   .date,
   .time {
-    font-size: .85em;
+    font-size: $smallFont;
     color: #aaa;
   }
 
@@ -99,18 +119,14 @@
 
 
 .forecast-wrapper {
-  padding: 0 12px;
-  margin: 24px 0;
+  @include wrapper-props;
 
   .forecast-title {
-    padding: 0 6px;
+    @include box-title;
   }
 
   .forecast-container {
-    display: flex;
-    border-radius: 10px;
-    padding: 16px 12px;
-    background-color: #555;
+    @include box-props;
     align-items: center;
     justify-content: space-between;
   }
@@ -118,7 +134,7 @@
   .forecast-day,
   .forecast-temp {
     text-align: center;
-    font-size: .85em;
+
   }
 
   .forecast-icon img {
@@ -126,6 +142,33 @@
     padding: 10px 0;
   }
 }
+
+
+.uvindex-wrapper {
+  @include wrapper-props;
+
+  .uvindex-container {
+    @include box-props;
+  }
+
+  .uvindex-left {
+    width: 50%;
+    border-right: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .uvindex-right {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+}
+
+
 
 
 
