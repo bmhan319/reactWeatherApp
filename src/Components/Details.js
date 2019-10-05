@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Details = () => {
+const Details = (props) => {
   return(
      <div className="details-wrapper">
         <p className="daily-title">Details</p>
@@ -15,7 +15,7 @@ const Details = () => {
             </div>
             <div className="details-title-container">
               <p className="details-title">Sunrise: </p>
-              <p className="details-data">6:00AM</p>
+              <p className="details-data">{props.state.sunrise}</p>
             </div>
           </div>
           <div className="details-row">
@@ -28,7 +28,7 @@ const Details = () => {
             </div>
             <div className="details-title-container">
               <p className="details-title">Sunset: </p>
-              <p className="details-data">6:00PM</p>
+              <p className="details-data">{props.state.sunset}</p>
             </div>
           </div>
           <div className="details-row">
@@ -45,7 +45,7 @@ const Details = () => {
             </div>
             <div className="details-title-container">
               <p className="details-title">Pressure: </p>
-              <p className="details-data">900 hPa</p>
+              <p className="details-data">{props.state.pressure} hPa</p>
             </div>
           </div>
           <div className="details-row">
@@ -56,7 +56,7 @@ const Details = () => {
             </div>
             <div className="details-title-container wind-title-container">
             <p className="details-title">WindSpeed: </p>
-            <p className="details-data">23 mph</p>
+            <p className="details-data">{props.state.wind} mph</p>
             </div>
           </div>
         </div>
