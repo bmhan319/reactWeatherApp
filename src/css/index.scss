@@ -80,6 +80,18 @@ $largeFont: 5em;
   }
 }
 
+.current-weather-empty-wrapper {
+  height: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .current-weather-empty-text {
+    text-align: center;
+    line-height: 1.5em;
+  }
+}
+
 .current-weather-wrapper {
   .current-location,
   .date-container {
@@ -87,10 +99,20 @@ $largeFont: 5em;
     font-size: $regFont;
   }
 
-  .date,
-  .time {
-    font-size: $smallFont;
+  .text-color {
+    color: #fff;
+  }
+
+  .text-day {
+    color: #000;
+  }
+
+  .text-night {
     color: #aaa;
+  }
+
+  .date {
+    font-size: $smallFont;
   }
 
   .weather-row1 {
@@ -120,7 +142,6 @@ $largeFont: 5em;
 
   .high-low,
   .feels {
-    color: #ccc;
     font-size: $regFont;
   }
 
@@ -128,6 +149,10 @@ $largeFont: 5em;
     text-align: center;
     font-size: $regFont;
   }
+}
+
+.hide {
+  display: none;
 }
 
 

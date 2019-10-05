@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment'
 import InputLocation from "./Components/InputLocation"
+import CurrentWeatherEmpty from "./Components/CurrentWeatherEmpty"
 import CurrentWeather from './Components/CurrentWeather'
 import Forecast from './Components/Forecast'
 import UVIndex from './Components/UVIndex'
@@ -11,25 +12,25 @@ const API_KEY = process.env.REACT_APP_API_KEY
 class App extends Component {
   state = {
     location: undefined,
-    icon: "01n",
+    icon: "01d",
     alt: undefined,
     date: moment(new Date()).format("dddd MMMM D h:mmA"),
     temp: undefined,
-    hi: undefined,
-    low: undefined,
-    humidity: undefined,
+    hi: 70,
+    low: 70,
+    humidity: 0,
     condition: undefined,
-    uvColor: undefined,
-    uvLevel:undefined,
-    day1: [],
-    day2: [],
-    day3: [],
-    day4: [],
-    day5: [],
-    sunrise: undefined,
-    sunset: undefined,
-    pressure: undefined,
-    wind: undefined,
+    uvColor: "green",
+    uvLevel: "Low",
+    day1: ["Sun","01d","70"],
+    day2: ["Mon","01d","70"],
+    day3: ["Tue","01d","70"],
+    day4: ["Wed","01d","70"],
+    day5: ["Thu","01d","70"],
+    sunrise: "6AM",
+    sunset: "6PM",
+    pressure: 0,
+    wind: 0,
     timezone: undefined,
     error: undefined,
     userLat: undefined,
@@ -40,6 +41,7 @@ class App extends Component {
   isDay = (time) => {
     let split = time.split(",")
     const wrapper = document.querySelector(".main-wrapper")
+    const textColor = document.querySelectorAll(".text-color")
 
     if (split[0] === "12" && split[1] === "AM") {
       wrapper.classList.add("night")
@@ -91,6 +93,8 @@ class App extends Component {
     const city = event.target.elements.city.value
     const patternNum = new RegExp(/^\d{5}$/)
     const patternABC = new RegExp(/^[A-Za-z]+$/)
+    const emptyWeather = document.querySelector(".current-weather-empty-wrapper")
+    const currentWeather = document.querySelector(".current-weather-wrapper")
     
     //reset the input value
     document.querySelector(".location-input").value = ""
@@ -165,12 +169,16 @@ class App extends Component {
     } else {
       alert("Please enter a valid City or ZipCode.")
     }
+
+    emptyWeather.classList.add("hide")
+    currentWeather.classList.remove("hide")
   }
 
   render() {
     return (
       <div className="App main-wrapper">
         <InputLocation getWeather={this.getWeather} />
+        <CurrentWeatherEmpty />
         <CurrentWeather state={this.state}/>
         <Forecast state={this.state}/>
         <UVIndex state={this.state}/>
