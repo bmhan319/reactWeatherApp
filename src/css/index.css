@@ -49,6 +49,7 @@
 .current-weather-wrapper .current-location,
 .current-weather-wrapper .date-container {
   text-align: center;
+  font-size: 1em;
 }
 
 .current-weather-wrapper .date,
@@ -91,10 +92,12 @@
 .current-weather-wrapper .high-low,
 .current-weather-wrapper .feels {
   color: #ccc;
+  font-size: 1em;
 }
 
 .current-weather-wrapper .weather-row3 {
   text-align: center;
+  font-size: 1em;
 }
 
 .forecast-wrapper {
@@ -173,5 +176,69 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.details-wrapper {
+  padding: 0 12px;
+  margin: 24px 0;
+}
+
+.details-wrapper .daily-title {
+  padding: 0 6px;
+  font-size: 1em;
+}
+
+.details-wrapper .details-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+  padding: 16px 12px;
+  background-color: #555;
+  font-size: 0.85em;
+  display: block;
+}
+
+.details-wrapper .details-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.details-wrapper .details-icon-container {
+  width: 40px;
+  height: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.details-wrapper .details-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #fff;
+  margin-left: 8px;
+  height: 32px;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.details-wrapper .wind-title-container {
+  border-bottom: 0;
 }
 /*# sourceMappingURL=index.css.map */

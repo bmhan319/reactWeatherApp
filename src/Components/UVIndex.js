@@ -2,7 +2,7 @@ import React from 'react';
 
 const UVIndex = () => {
   return(
-    <div className="main-screen-full uvindex-wrapper">
+    <div className="uvindex-wrapper">
         <div className="uvindex-container">
           <div className="uvindex-left">
             <p className="uvindex-title">UV Index</p>

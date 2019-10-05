@@ -3,6 +3,7 @@ import InputLocation from "./Components/InputLocation"
 import CurrentWeather from './Components/CurrentWeather'
 import Forecast from './Components/Forecast'
 import UVIndex from './Components/UVIndex'
+import Details from './Components/Details'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <CurrentWeather />
         <Forecast />
         <UVIndex />
+        <Details />
       </div>
     );
   }
