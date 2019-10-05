@@ -1,5 +1,4 @@
 import React from 'react'
-import Sunny from '../sunny.png'
 
 const Details = () => {
   return(
