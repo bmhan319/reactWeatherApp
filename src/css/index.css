@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +28,7 @@
   height: 30px;
   outline: 0;
   border-radius: 25px;
+  border: 2px solid #444;
   color: #000;
   padding-left: 16px;
   font-size: 1em;
@@ -38,5 +40,60 @@
   background-color: transparent;
   border: 0;
   font-size: 1em;
+}
+
+.location-field-wrapper .location-form .location-submit:hover {
+  color: orange;
+}
+
+.current-weather-wrapper .current-location,
+.current-weather-wrapper .date-container {
+  text-align: center;
+}
+
+.current-weather-wrapper .date,
+.current-weather-wrapper .time {
+  font-size: .85em;
+  color: #aaa;
+}
+
+.current-weather-wrapper .weather-row1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.current-weather-wrapper .weather-icon {
+  position: relative;
+  width: 25%;
+}
+
+.current-weather-wrapper .weather-temperature {
+  font-size: 5em;
+}
+
+.current-weather-wrapper .weather-temperature::after {
+  content: "˚";
+}
+
+.current-weather-wrapper .weather-row2 {
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.current-weather-wrapper .high-low,
+.current-weather-wrapper .feels {
+  color: #ccc;
+}
+
+.current-weather-wrapper .weather-row3 {
+  text-align: center;
 }
 /*# sourceMappingURL=index.css.map */
