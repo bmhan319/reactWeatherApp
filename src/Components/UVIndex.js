@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UVIndex = () => {
+const UVIndex = (props) => {
   return(
     <div className="uvindex-wrapper">
         <div className="uvindex-container">
@@ -8,7 +8,7 @@ const UVIndex = () => {
             <p className="uvindex-title">UV Index</p>
           </div>
           <div className="uvindex-right">
-            <svg className="uvindex-icon" fill="yellow" width="24" height="24" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+            <svg className="uvindex-icon" fill={props.state.uvColor} width="24" height="24" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
               <g>
                 <path d="M64,30.34c-18.59,0-33.66,15.07-33.66,33.65c0,18.59,15.07,33.66,33.66,33.66 c18.59,0,33.66-15.07,33.66-33.66C97.66,45.41,82.59,30.34,64,30.34z"/>
                 <path d="M56.76,24.21L56.76,24.21h14.49c0.67,0,1.29-0.33,1.68-0.88c0.38-0.54,0.47-1.25,0.24-1.88 L65.92,1.83c-0.3-0.81-1.06-1.34-1.92-1.34s-1.62,0.54-1.92,1.34l-7.25,19.63c-0.23,0.63-0.14,1.33,0.24,1.88 C55.46,23.89,56.09,24.21,56.76,24.21z" />
@@ -21,7 +21,7 @@ const UVIndex = () => {
                 <path d="M27.45,40.4c0.28,0.61,0.84,1.04,1.5,1.16c0.12,0.02,0.24,0.03,0.36,0.03c0.54,0,1.06-0.21,1.45-0.6 L41,30.74c0.47-0.48,0.68-1.15,0.56-1.81c-0.12-0.65-0.55-1.21-1.16-1.49l-19.02-8.76c-0.78-0.36-1.69-0.19-2.3,0.42 c-0.61,0.61-0.77,1.52-0.41,2.3L27.45,40.4z"/>
               </g>
             </svg>
-            <p className="uvindex-level">2</p>
+            <p className="uvindex-level">{props.state.uvLevel}</p>
           </div>
         </div>
       </div>

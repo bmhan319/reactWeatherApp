@@ -11,7 +11,7 @@ const API_KEY = process.env.REACT_APP_API_KEY
 class App extends Component {
   state = {
     location: undefined,
-    icon: undefined,
+    icon: "01n",
     alt: undefined,
     date: moment(new Date()).format("dddd MMMM D h:mmA"),
     temp: undefined,
@@ -83,9 +83,7 @@ class App extends Component {
       const uvIndex = await fetch(`http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${zipData.coord.lat}&lon=${zipData.coord.lon}`)
       const uvData = await uvIndex.json()
       this.getTimeZone(zipData.timezone)
-      console.log(zipData)
       console.log(zipForecast)
-      console.log(uvData)
 
       this.setState({
         location: zipData.name,
