@@ -36,28 +36,48 @@ class App extends Component {
     userLon: undefined,
   }
 
+  //convert API timezone(in milliseconds) to hours to find offset from GMT
+  getTimeZone = (tz) => {
+    let timezone = tz / 3600
+    return timezone
+  }
+
+  //converting API UV Index number to colors and levels
+  getUV = (uv) => {
+    if (uv >= 0 && uv < 3) {
+      return ["green","Low"]
+    } else if (uv >= 3 && uv < 6 )  {
+      return ["yellow","Moderate"]
+    } else if (uv >= 6 && uv < 8 )  {
+      return ["orange","High"]
+    } else if (uv >= 8 && uv < 11 )  {
+      return ["red","Very High"]
+    } else if (uv >= 11)  {
+      return ["violet","Extreme"]
+    }
+  }
+
+  //converting UTC time into local time for selected city
+  //utcTime is UTC time from API
+  //offset is number generated from getTimeZone()
+  convertUTC = (utcTime,offset) => {
+    let localTime = moment(new Date(utcTime * 1000)).utcOffset(offset).format("h:mm A")
+    return localTime
+  }
+
   getWeather = async (event) => {
-    event.preventDefault() 
+    event.preventDefault()    //prevents button from reloading page
     const city = event.target.elements.city.value
-    const patternNum = new RegExp(/[0-9]/)
-    const patternABC = new RegExp(/[abc]/)
+    const patternNum = new RegExp(/^\d{5}$/)
+    const patternABC = new RegExp(/^[A-Za-z]+$/)
     
+    //reset the input value
     document.querySelector(".location-input").value = ""
 
-    if (patternNum.test(city) && (city.length === 5)) {
-      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${city},us&APPID=${API_KEY}&units=imperial`)
-      const api_zip_forecast = await fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=${city},US&APPID=${API_KEY}&units=imperial`)
-      let zipData = await api_call.json()
-      let zipForecast = await api_zip_forecast.json()
-      console.log(zipData)
-      console.log(zipForecast)
+    if (patternNum.test(city)) {
+      console.log("zip")
     } else if (patternABC.test(city)) {
-      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=imperial`)
-      const api_forecast = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=imperial`)
-      const weatherData = await api_call.json()
-      const forecastData = await api_forecast.json()
-      console.log(weatherData)
-      console.log(forecastData)
+      console.log("city")
     } else {
       console.log("Please enter a valid City or ZipCode.")
     }

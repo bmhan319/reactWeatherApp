@@ -21,7 +21,7 @@ $largeFont: 5em;
 }
 
 @mixin box-title {
-  padding: 0 6px;
+  padding: 0 6px 2px;
   font-size: $regFont;
 }
 

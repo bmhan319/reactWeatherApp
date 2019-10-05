@@ -106,7 +106,7 @@
 }
 
 .forecast-wrapper .forecast-title {
-  padding: 0 6px;
+  padding: 0 6px 2px;
   font-size: 1em;
 }
 
@@ -184,7 +184,7 @@
 }
 
 .details-wrapper .daily-title {
-  padding: 0 6px;
+  padding: 0 6px 2px;
   font-size: 1em;
 }
 
