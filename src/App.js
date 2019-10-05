@@ -153,10 +153,10 @@ class App extends Component {
     return (
       <div className="App main-wrapper">
         <InputLocation getWeather={this.getWeather} />
-        <CurrentWeather />
-        <Forecast />
-        <UVIndex />
-        <Details />
+        <CurrentWeather state={this.state}/>
+        <Forecast state={this.state}/>
+        <UVIndex state={this.state}/>
+        <Details state={this.state}/>
       </div>
     );
   }
