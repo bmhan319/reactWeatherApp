@@ -36,6 +36,27 @@ class App extends Component {
     userLon: undefined,
   }
 
+  //determine if it's day or night
+  isDay = (time) => {
+    let split = time.split(",")
+    const wrapper = document.querySelector(".main-wrapper")
+
+    if (split[0] === "12" && split[1] === "AM") {
+      wrapper.classList.add("night")
+      wrapper.classList.remove("day")
+      return "night"
+    } else if ( (split[0] >= 6  && split[1] === "PM") || (split[0] <= 6 && split[1] === "AM") ) {
+      wrapper.classList.add("night")
+      wrapper.classList.remove("day")
+      return "night"
+    }  else {
+      wrapper.classList.add("day")
+      wrapper.classList.remove("night")
+      return "day"
+    }
+
+  }
+
   //convert API timezone(in milliseconds) to hours to find offset from GMT
   getTimeZone = (tz) => {
     let timezone = tz / 3600
@@ -82,8 +103,8 @@ class App extends Component {
       const zipForecast = await api_zip_forecast.json()
       const uvIndex = await fetch(`http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${zipData.coord.lat}&lon=${zipData.coord.lon}`)
       const uvData = await uvIndex.json()
-      this.getTimeZone(zipData.timezone)
-      console.log(zipForecast)
+      const timeOfDay= (moment().utcOffset(this.getTimeZone(zipData.timezone)).format("h,A"))
+      this.isDay(timeOfDay)
 
       this.setState({
         location: zipData.name,
@@ -115,9 +136,8 @@ class App extends Component {
       const forecastData = await api_forecast.json()
       const uvIndex = await fetch(`http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}`)
       const uvData = await uvIndex.json()
-      console.log(weatherData)
-      console.log(forecastData)
-      console.log(uvData)
+      const timeOfDay = (moment().utcOffset(this.getTimeZone(weatherData.timezone)).format("h,A"))
+      this.isDay(timeOfDay)
 
       this.setState ({
         location: weatherData.name,

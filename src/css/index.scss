@@ -39,7 +39,15 @@ $largeFont: 5em;
   height: 720px;
   border-radius: 25px;
   margin: 50px auto;
-  background-image: url("../night.png")
+  background-color: #000;
+}
+
+.day {
+  background-image: url("../day.png");
+}
+
+.night {
+  background-image: url("../night.png");
 }
 
 .location-field-wrapper {
