@@ -41,7 +41,6 @@ class App extends Component {
   isDay = (time) => {
     let split = time.split(",")
     const wrapper = document.querySelector(".main-wrapper")
-    const textColor = document.querySelectorAll(".text-color")
 
     if (split[0] === "12" && split[1] === "AM") {
       wrapper.classList.add("night")
@@ -89,6 +88,7 @@ class App extends Component {
   }
 
   getWeather = async (event) => {
+    try{
     event.preventDefault()    //prevents button from reloading page
     const city = event.target.elements.city.value
     const patternNum = new RegExp(/^\d{5}$/)
@@ -172,6 +172,10 @@ class App extends Component {
 
     emptyWeather.classList.add("hide")
     currentWeather.classList.remove("hide")
+    }
+    catch(err) {
+      alert("Please enter in a correct city name or zip!")
+    }
   }
 
   render() {
