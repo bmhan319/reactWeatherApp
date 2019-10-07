@@ -124,11 +124,11 @@ class App extends Component {
 
     // If user inputs a zip
     if (patternNum.test(city)) {
-      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${city},us&APPID=${API_KEY}&units=imperial`)
-      const api_zip_forecast = await fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=${city},US&APPID=${API_KEY}&units=imperial`)
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${city},us&APPID=${API_KEY}&units=imperial`)
+      const api_zip_forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${city},US&APPID=${API_KEY}&units=imperial`)
       const zipData = await api_call.json()
       const zipForecast = await api_zip_forecast.json()
-      const uvIndex = await fetch(`http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${zipData.coord.lat}&lon=${zipData.coord.lon}`)
+      const uvIndex = await fetch(`https://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${zipData.coord.lat}&lon=${zipData.coord.lon}`)
       const uvData = await uvIndex.json()
       const timeOfDay= (moment().utcOffset(this.getTimeZone(zipData.timezone)).format("h,A"))
       this.isDay(timeOfDay)
@@ -158,11 +158,11 @@ class App extends Component {
         timezone:zipData.timezone,
       })
     } else if (patternABC.test(city)) {
-      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=imperial`)
-      const api_forecast = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=imperial`)
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=imperial`)
+      const api_forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=imperial`)
       const weatherData = await api_call.json()
       const forecastData = await api_forecast.json()
-      const uvIndex = await fetch(`http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}`)
+      const uvIndex = await fetch(`https://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${weatherData.coord.lat}&lon=${weatherData.coord.lon}`)
       const uvData = await uvIndex.json()
       const timeOfDay = (moment().utcOffset(this.getTimeZone(weatherData.timezone)).format("h,A"))
       this.isDay(timeOfDay)
