@@ -41,18 +41,31 @@ class App extends Component {
   isDay = (time) => {
     let split = time.split(",")
     const wrapper = document.querySelector(".main-wrapper")
+    const textColor = document.querySelectorAll(".text-color")
 
     if (split[0] === "12" && split[1] === "AM") {
       wrapper.classList.add("night")
       wrapper.classList.remove("day")
+      textColor.forEach((el)=> {
+        el.classList.add("text-night")
+        el.classList.remove("text-day")
+      })
       return "night"
     } else if ( (split[0] >= 6  && split[1] === "PM") || (split[0] <= 6 && split[1] === "AM") ) {
       wrapper.classList.add("night")
       wrapper.classList.remove("day")
+      textColor.forEach((el)=> {
+        el.classList.add("text-night")
+        el.classList.remove("text-day")
+      })
       return "night"
     }  else {
       wrapper.classList.add("day")
       wrapper.classList.remove("night")
+      textColor.forEach((el)=> {
+        el.classList.add("text-day")
+        el.classList.remove("text-night")
+      })
       return "day"
     }
 

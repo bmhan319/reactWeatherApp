@@ -78,12 +78,8 @@
   font-size: 1em;
 }
 
-.current-weather-wrapper .text-color {
-  color: #fff;
-}
-
 .current-weather-wrapper .text-day {
-  color: #000;
+  color: #555;
 }
 
 .current-weather-wrapper .text-night {
