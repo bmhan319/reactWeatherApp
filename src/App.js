@@ -50,7 +50,6 @@ class App extends Component {
         el.classList.add("text-night")
         el.classList.remove("text-day")
       })
-      console.log("1")
       return "night"
     } else if ( (split[0] >= 6  && split[0] <= 11 && split[1] === "PM") || (split[0] <= 6 && split[1] === "AM") ) {
       wrapper.classList.add("night-bg")
@@ -59,7 +58,6 @@ class App extends Component {
         el.classList.add("text-night")
         el.classList.remove("text-day")
       })
-      console.log("2")
       return "night"
     }  else {
       wrapper.classList.add("day-bg")
@@ -68,7 +66,6 @@ class App extends Component {
         el.classList.add("text-day")
         el.classList.remove("text-night")
       })
-      console.log("3")
       return "day"
     }
 
@@ -103,6 +100,16 @@ class App extends Component {
     return localTime
   }
 
+
+  //getting consistent daytime forecast at 3PM each day in every city
+  getForecast = (apiData) => {
+    const list = apiData.list
+    const filter = list.filter((el) => {
+      return  (el.dt_txt.split(" "))[1] === "15:00:00" 
+    })
+    return filter
+  }
+
   getWeather = async (event) => {
     try{
     event.preventDefault()    //prevents button from reloading page
@@ -125,6 +132,7 @@ class App extends Component {
       const uvData = await uvIndex.json()
       const timeOfDay= (moment().utcOffset(this.getTimeZone(zipData.timezone)).format("h,A"))
       this.isDay(timeOfDay)
+      const trueForecast = this.getForecast(zipForecast)
 
       this.setState({
         location: zipData.name,
@@ -138,11 +146,11 @@ class App extends Component {
         condition: (zipData.weather[0].description)[0].toUpperCase() + (zipData.weather[0].description).slice(1),
         uvColor: this.getUV(uvData.value)[0],
         uvLevel: this.getUV(uvData.value)[1],
-        day1: [moment(new Date(zipForecast.list[4].dt_txt)).format("ddd"), zipForecast.list[4].weather[0].icon, Math.floor(zipForecast.list[4].main.temp)],
-        day2: [moment(new Date(zipForecast.list[12].dt_txt)).format("ddd"), zipForecast.list[12].weather[0].icon, Math.floor(zipForecast.list[12].main.temp)],
-        day3: [moment(new Date(zipForecast.list[20].dt_txt)).format("ddd"), zipForecast.list[20].weather[0].icon, Math.floor(zipForecast.list[20].main.temp)],
-        day4: [moment(new Date(zipForecast.list[28].dt_txt)).format("ddd"), zipForecast.list[28].weather[0].icon, Math.floor(zipForecast.list[28].main.temp)],
-        day5: [moment(new Date(zipForecast.list[36].dt_txt)).format("ddd"), zipForecast.list[36].weather[0].icon, Math.floor(zipForecast.list[36].main.temp)],
+        day1: [moment(new Date(trueForecast[0].dt_txt)).format("ddd"), trueForecast[0].weather[0].icon, Math.floor(trueForecast[0].main.temp)],
+        day2: [moment(new Date(trueForecast[1].dt_txt)).format("ddd"), trueForecast[1].weather[0].icon, Math.floor(trueForecast[1].main.temp)],
+        day3: [moment(new Date(trueForecast[2].dt_txt)).format("ddd"), trueForecast[2].weather[0].icon, Math.floor(trueForecast[2].main.temp)],
+        day4: [moment(new Date(trueForecast[3].dt_txt)).format("ddd"), trueForecast[3].weather[0].icon, Math.floor(trueForecast[3].main.temp)],
+        day5: [moment(new Date(trueForecast[4].dt_txt)).format("ddd"), trueForecast[4].weather[0].icon, Math.floor(trueForecast[4].main.temp)],
         sunrise:this.convertUTC(zipData.sys.sunrise, this.getTimeZone(zipData.timezone)),
         sunset:this.convertUTC(zipData.sys.sunset, this.getTimeZone(zipData.timezone)),
         pressure:zipData.main.pressure,
@@ -158,6 +166,7 @@ class App extends Component {
       const uvData = await uvIndex.json()
       const timeOfDay = (moment().utcOffset(this.getTimeZone(weatherData.timezone)).format("h,A"))
       this.isDay(timeOfDay)
+      const trueForecast = this.getForecast(forecastData)
 
       this.setState ({
         location: weatherData.name,
@@ -171,11 +180,11 @@ class App extends Component {
         condition: (weatherData.weather[0].description)[0].toUpperCase() + (weatherData.weather[0].description).slice(1),
         uvColor: this.getUV(uvData.value)[0],
         uvLevel: this.getUV(uvData.value)[1],
-        day1: [moment(new Date(forecastData.list[4].dt_txt)).format("ddd"), forecastData.list[4].weather[0].icon, Math.floor(forecastData.list[4].main.temp)],
-        day2: [moment(new Date(forecastData.list[12].dt_txt)).format("ddd"), forecastData.list[12].weather[0].icon, Math.floor(forecastData.list[12].main.temp)],
-        day3: [moment(new Date(forecastData.list[20].dt_txt)).format("ddd"), forecastData.list[20].weather[0].icon, Math.floor(forecastData.list[20].main.temp)],
-        day4: [moment(new Date(forecastData.list[28].dt_txt)).format("ddd"), forecastData.list[28].weather[0].icon, Math.floor(forecastData.list[28].main.temp)],
-        day5: [moment(new Date(forecastData.list[36].dt_txt)).format("ddd"), forecastData.list[36].weather[0].icon, Math.floor(forecastData.list[36].main.temp)],
+        day1: [moment(new Date(trueForecast[0].dt_txt)).format("ddd"), trueForecast[0].weather[0].icon, Math.floor(trueForecast[0].main.temp)],
+        day2: [moment(new Date(trueForecast[1].dt_txt)).format("ddd"), trueForecast[1].weather[0].icon, Math.floor(trueForecast[1].main.temp)],
+        day3: [moment(new Date(trueForecast[2].dt_txt)).format("ddd"), trueForecast[2].weather[0].icon, Math.floor(trueForecast[2].main.temp)],
+        day4: [moment(new Date(trueForecast[3].dt_txt)).format("ddd"), trueForecast[3].weather[0].icon, Math.floor(trueForecast[3].main.temp)],
+        day5: [moment(new Date(trueForecast[4].dt_txt)).format("ddd"), trueForecast[4].weather[0].icon, Math.floor(trueForecast[4].main.temp)],
         sunrise:this.convertUTC(weatherData.sys.sunrise, this.getTimeZone(weatherData.timezone)),
         sunset:this.convertUTC(weatherData.sys.sunset, this.getTimeZone(weatherData.timezone)),
         pressure:weatherData.main.pressure,
