@@ -1,6 +1,8 @@
 $smallFont: .85em;
 $regFont: 1em;
 $largeFont: 5em;
+$day: #444;
+$night: #fff;
 
 @mixin reset{
   margin: 0;
@@ -42,11 +44,11 @@ $largeFont: 5em;
   background-color: #000;
 }
 
-.day {
+.day-bg {
   background-image: url("../day.png");
 }
 
-.night {
+.night-bg {
   background-image: url("../night.png");
 }
 
@@ -60,8 +62,8 @@ $largeFont: 5em;
       height: 30px;
       outline: 0;
       border-radius: 25px;
-      border: 2px solid #444;
-      color: #000;
+      border: 1px solid ;
+      background-color: transparent;
       padding-left: 16px;
       font-size: $regFont;
     }
@@ -72,10 +74,31 @@ $largeFont: 5em;
       background-color: transparent;
       border: 0;
       font-size: $regFont;
+      outline: 0px;
     }
 
-    .location-submit:hover {
-      color: orange
+    .text-day {
+      color: $day;
+    }
+
+    .text-night {
+      color: $night;
+    }
+
+    .text-day:hover {
+      color: #000;
+    }
+
+    .text-night:hover {
+      color: #aaa;
+    }
+
+    .text-day::placeholder {
+      color: $day;
+    }
+
+    .text-night::placeholder {
+      color: $night;
     }
   }
 }
@@ -96,16 +119,16 @@ $largeFont: 5em;
   .current-location,
   .date-container {
     text-align: center;
-    font-size: $regFont;
+    font-size: $regFont + .25;
+    padding-bottom: 4px;
   }
 
-
   .text-day {
-    color: #555;
+    color: $day;
   }
 
   .text-night {
-    color: #aaa;
+    color: $night;
   }
 
   .date {
@@ -160,6 +183,14 @@ $largeFont: 5em;
     @include box-title;
   }
 
+  .text-day {
+    color: $day;
+  }
+
+  .text-night {
+    color: $night;
+  }
+
   .forecast-container {
     @include box-props;
     align-items: center;
@@ -208,6 +239,14 @@ $largeFont: 5em;
 
   .daily-title {
     @include box-title;
+  }
+
+  .text-day {
+    color: $day;
+  }
+
+  .text-night {
+    color: $night;
   }
 
   .details-container {

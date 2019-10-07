@@ -42,26 +42,41 @@ class App extends Component {
     let split = time.split(",")
     const wrapper = document.querySelector(".main-wrapper")
     const textColor = document.querySelectorAll(".text-color")
+    //const input = document.querySelector(".location-input")
+    //const submit = document.querySelector(".location-submit")
+    console.log(textColor)
 
     if (split[0] === "12" && split[1] === "AM") {
-      wrapper.classList.add("night")
-      wrapper.classList.remove("day")
+      wrapper.classList.add("night-bg")
+      wrapper.classList.remove("day-bg")
+      //input.classList.add("location-input-night")
+      //input.classList.remove("location-input-day")
+      //submit.classList.add(".location-submit-night")
+      //submit.classList.remove(".location-submit-day")
       textColor.forEach((el)=> {
         el.classList.add("text-night")
         el.classList.remove("text-day")
       })
       return "night"
     } else if ( (split[0] >= 6  && split[1] === "PM") || (split[0] <= 6 && split[1] === "AM") ) {
-      wrapper.classList.add("night")
-      wrapper.classList.remove("day")
+      wrapper.classList.add("night-bg")
+      wrapper.classList.remove("day-bg")
+      //input.classList.add("location-input-night")
+      //input.classList.remove("location-input-day")
+      //submit.classList.add(".location-submit-night")
+      //submit.classList.remove(".location-submit-day")
       textColor.forEach((el)=> {
         el.classList.add("text-night")
         el.classList.remove("text-day")
       })
       return "night"
     }  else {
-      wrapper.classList.add("day")
-      wrapper.classList.remove("night")
+      wrapper.classList.add("day-bg")
+      wrapper.classList.remove("night-bg")
+      //input.classList.add("location-input-day")
+      //input.classList.remove("location-input-night")
+      //submit.classList.add(".location-submit-day")
+      //submit.classList.remove(".location-submit-night")
       textColor.forEach((el)=> {
         el.classList.add("text-day")
         el.classList.remove("text-night")

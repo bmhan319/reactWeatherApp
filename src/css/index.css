@@ -18,11 +18,11 @@
   background-color: #000;
 }
 
-.day {
+.day-bg {
   background-image: url("../day.png");
 }
 
-.night {
+.night-bg {
   background-image: url("../night.png");
 }
 
@@ -36,8 +36,8 @@
   height: 30px;
   outline: 0;
   border-radius: 25px;
-  border: 2px solid #444;
-  color: #000;
+  border: 1px solid;
+  background-color: transparent;
   padding-left: 16px;
   font-size: 1em;
 }
@@ -48,10 +48,55 @@
   background-color: transparent;
   border: 0;
   font-size: 1em;
+  outline: 0px;
 }
 
-.location-field-wrapper .location-form .location-submit:hover {
-  color: orange;
+.location-field-wrapper .location-form .text-day {
+  color: #444;
+}
+
+.location-field-wrapper .location-form .text-night {
+  color: #fff;
+}
+
+.location-field-wrapper .location-form .text-day:hover {
+  color: #000;
+}
+
+.location-field-wrapper .location-form .text-night:hover {
+  color: #aaa;
+}
+
+.location-field-wrapper .location-form .text-day::-webkit-input-placeholder {
+  color: #444;
+}
+
+.location-field-wrapper .location-form .text-day:-ms-input-placeholder {
+  color: #444;
+}
+
+.location-field-wrapper .location-form .text-day::-ms-input-placeholder {
+  color: #444;
+}
+
+.location-field-wrapper .location-form .text-day::placeholder {
+  color: #444;
+}
+
+.location-field-wrapper .location-form .text-night::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.location-field-wrapper .location-form .text-night:-ms-input-placeholder {
+  color: #fff;
+}
+
+.location-field-wrapper .location-form .text-night::-ms-input-placeholder {
+  color: #fff;
+}
+
+.location-field-wrapper .location-form .text-night::placeholder {
+  color: #fff;
 }
 
 .current-weather-empty-wrapper {
@@ -75,15 +120,16 @@
 .current-weather-wrapper .current-location,
 .current-weather-wrapper .date-container {
   text-align: center;
-  font-size: 1em;
+  font-size: 1.25em;
+  padding-bottom: 4px;
 }
 
 .current-weather-wrapper .text-day {
-  color: #555;
+  color: #444;
 }
 
 .current-weather-wrapper .text-night {
-  color: #aaa;
+  color: #fff;
 }
 
 .current-weather-wrapper .date {
@@ -143,6 +189,14 @@
 .forecast-wrapper .forecast-title {
   padding: 0 6px 2px;
   font-size: 1em;
+}
+
+.forecast-wrapper .text-day {
+  color: #444;
+}
+
+.forecast-wrapper .text-night {
+  color: #fff;
 }
 
 .forecast-wrapper .forecast-container {
@@ -221,6 +275,14 @@
 .details-wrapper .daily-title {
   padding: 0 6px 2px;
   font-size: 1em;
+}
+
+.details-wrapper .text-day {
+  color: #444;
+}
+
+.details-wrapper .text-night {
+  color: #fff;
 }
 
 .details-wrapper .details-container {

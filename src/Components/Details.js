@@ -3,7 +3,7 @@ import React from 'react'
 const Details = (props) => {
   return(
      <div className="details-wrapper">
-        <p className="daily-title">Details</p>
+        <p className="daily-title text-color">Details</p>
         <div className="details-container">
           <div className="details-row">
             <div className="details-icon-container">

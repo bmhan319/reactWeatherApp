@@ -4,7 +4,7 @@ const CurrentWeather = (props) => {
   return(
     <div className="current-weather-wrapper hide">
       <div className="current-location-container">
-        <p className="current-location">{props.state.location}</p>
+        <p className="current-location text-color">{props.state.location}</p>
       </div>
       <div className="date-container">
         <p className="date text-color">{props.state.date}</p>
@@ -19,7 +19,7 @@ const CurrentWeather = (props) => {
             <span className="feels text-color">Humidity: {props.state.humidity}%</span>
           </div>
           <div className="weather-row3">
-            <span className="condition">{props.state.condition}</span>
+            <span className="condition text-color">{props.state.condition}</span>
           </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ import React from 'react'
 const Forecast = (props) => {
   return(
     <div className="forecast-wrapper">
-        <p className="forecast-title">5-Day Forecast</p>
+        <p className="forecast-title text-color">5-Day Forecast</p>
         <div className="forecast-container">
           <div className="forecast-col forecast-col1">
             <div className="forecast-day">{props.state.day1[0]}</div>
