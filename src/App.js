@@ -115,7 +115,7 @@ class App extends Component {
     event.preventDefault()    //prevents button from reloading page
     const city = event.target.elements.city.value
     const patternNum = new RegExp(/^\d{5}$/)
-    const patternABC = new RegExp(/^[A-Za-z]+$/)
+    const patternABC = new RegExp(/^[A-Za-z\s]+$/)
     const emptyWeather = document.querySelector(".current-weather-empty-wrapper")
     const currentWeather = document.querySelector(".current-weather-wrapper")
     
