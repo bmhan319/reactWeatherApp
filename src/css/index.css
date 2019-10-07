@@ -44,6 +44,7 @@ body {
   background-color: transparent;
   padding-left: 16px;
   font-size: 1em;
+  text-decoration: none;
 }
 
 .location-field-wrapper .location-form .location-submit {
@@ -341,5 +342,14 @@ body {
 
 .details-wrapper .wind-title-container {
   border-bottom: 0;
+}
+
+@media only screen and (max-width: 400px) {
+  .main-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0px;
+    border: 0;
+  }
 }
 /*# sourceMappingURL=index.css.map */

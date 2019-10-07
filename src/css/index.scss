@@ -70,6 +70,7 @@ body {
       background-color: transparent;
       padding-left: 16px;
       font-size: $regFont;
+      text-decoration: none;
     }
 
     .location-submit {
@@ -286,6 +287,15 @@ body {
   }
 }
 
+
+@media only screen and (max-width: 400px) {
+  .main-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0px;
+    border: 0;
+  }
+}
 
 
 
